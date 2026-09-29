@@ -1,0 +1,48 @@
+# api call for creating user
+###
+POST http://127.0.0.1:8000/admin-register/
+Content-Type: application/json
+
+{
+    "username":"superuser",
+    "email":"superuser@gmail.com",
+    "password":"superuser"
+}
+
+# api call for listing all turfs
+###
+GET http://127.0.0.1:8000/turfs/
+Accept: application/json
+Authorization: Basic superuser:superuser
+
+# api call for adding turfs
+###
+POST http://127.0.0.1:8000/turfs/
+Content-Type: application/json
+Authorization: Basic superuser:superuser
+
+{
+    "name":"Dreams",
+    "location":"Chalakudy",
+    "phone":987654321,
+    "fee":1200
+}
+
+# api call for retrieveing specific turf
+###
+GET http://127.0.0.1:8000/turfs/2/
+Accept: application/json
+Authorization: Basic superuser:superuser
+
+# api call for adding turfs
+###
+PUT http://127.0.0.1:8000/turfs/2/
+Content-Type: application/json
+Authorization: Basic superuser:superuser
+
+{
+    "name":"Dreams",
+    "location":"Chalakudy",
+    "phone":987654321,
+    "fee":1100
+}
