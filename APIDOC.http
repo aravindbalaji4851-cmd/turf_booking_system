@@ -46,3 +46,10 @@ Authorization: Basic superuser:superuser
     "phone":987654321,
     "fee":1100
 }
+
+# BOOKINGS ==============================
+
+# api call for listing all bookings
+###
+GET http://127.0.0.1:8000/bookings/
+Accept: application/json

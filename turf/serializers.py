@@ -20,3 +20,9 @@ class TurfSerializer(serializers.Serializer):
     phone = serializers.IntegerField()
 
     fee = serializers.IntegerField()
+    
+    def validate(self, validated_data):
+
+        fee = validated_data.get("fee")
+
+        if fee < 0: raise serializers.ValidationError("invalid fee . fee should be > 0")

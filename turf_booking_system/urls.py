@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from turf import views
+from slot_booking.views import BookingCreateListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin-register/',views.UserCreateView.as_view()),
     path('turfs/',views.TurfCreateListView.as_view()),
     path('turfs/<int:pk>/',views.TurfRetrieveUpdate.as_view()),
+    #bookings
+    path('bookings/',BookingCreateListView.as_view()),
+    
 ]
