@@ -53,3 +53,18 @@ Authorization: Basic superuser:superuser
 ###
 GET http://127.0.0.1:8000/bookings/
 Accept: application/json
+
+
+# BOOKINGS V2 ===============================
+
+# # api call for creating bookings
+###
+POST http://127.0.0.1:8000/v2/booking/signup/
+Content-Type: application/json
+
+{
+    "username":"habeeb",
+    "email":"habeeb@gmail.com",
+    "password":"habeeb@123"
+    
+}
