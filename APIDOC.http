@@ -57,7 +57,7 @@ Accept: application/json
 
 # BOOKINGS V2 ===============================
 
-# # api call for creating bookings
+# customer register api
 ###
 POST http://127.0.0.1:8000/v2/booking/signup/
 Content-Type: application/json
@@ -67,4 +67,24 @@ Content-Type: application/json
     "email":"habeeb@gmail.com",
     "password":"habeeb@123"
     
+}
+
+# listing bookings api call
+###
+GET http://127.0.0.1:8000/v2/booking/bookings/
+Accept: application/json
+
+# creating new booking api call
+###
+POST http://127.0.0.1:8000/v2/booking/bookings/
+Content-Type: application/json
+
+{
+    "customer_name":"manoj",
+    "turf":2,
+    "booking_date":"2026-10-20",
+    "start_time":"14:00",
+    "duration":1,
+    "phone_number":123456789,
+    "email":"rahul@gamil.com"
 }
