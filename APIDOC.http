@@ -83,8 +83,33 @@ Content-Type: application/json
     "customer_name":"manoj",
     "turf":2,
     "booking_date":"2026-10-20",
-    "start_time":"14:00",
-    "duration":1,
+    "start_time":"17:00",
+    "duration":"1:0:00",
     "phone_number":123456789,
-    "email":"rahul@gamil.com"
+    "email":"manoj@gamil.com"
 }
+
+# api call for retrieving specific booking
+###
+GET http://127.0.0.1:8000/v2/booking/bookings/5/
+Accept: application/json
+
+# api call for updating booking
+###
+PUT  http://127.0.0.1:8000/v2/booking/bookings/5/
+Content-Type: application/json
+
+{
+    "customer_name":"manoj k m",
+    "turf":2,
+    "booking_date":"2026-10-20",
+    "start_time":"17:00",
+    "duration":"1:0:00",
+    "phone_number":12377779,
+    "email":"manoj123@gamil.com"
+}
+
+# api call for deleting booking
+###
+DELETE http://127.0.0.1:8000/v2/booking/bookings/1/
+Accept: application/json

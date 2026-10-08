@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from booking_v2.models import Slots
 
-from datetime import date
+from datetime import date,timedelta
 
 class SignUpSerializer(serializers.ModelSerializer):
 
@@ -14,6 +14,8 @@ class SignUpSerializer(serializers.ModelSerializer):
         fields = ["username","email","password"]
 
 class BookingSerializer(serializers.ModelSerializer):
+
+    turf = serializers.StringRelatedField()
 
     class Meta:
 
@@ -27,10 +29,15 @@ class BookingSerializer(serializers.ModelSerializer):
     def validate(self,validated_data):
 
         booking_date = validated_data.get("booking_date")
+        duration = validated_data.get("duration")
 
         if booking_date < date.today():
 
             raise serializers.ValidationError("invalid date")
 
-        else: return validated_data
+        if duration < timedelta(hours=1): 
+
+            raise serializers.ValidationError("minimum duration is 1 hr")
+
+        return validated_data        
         

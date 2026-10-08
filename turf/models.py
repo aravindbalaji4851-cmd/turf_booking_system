@@ -12,4 +12,5 @@ class Turf(models.Model):
 
     fee = models.PositiveIntegerField()
 
-
+    def __str__(self):
+        return self.name

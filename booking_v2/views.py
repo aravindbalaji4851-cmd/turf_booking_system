@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.generics import RetrieveAPIView,UpdateAPIView,DestroyAPIView
 
 from booking_v2.serializers import SignUpSerializer,BookingSerializer
 from booking_v2.models import Slots
@@ -62,7 +63,7 @@ class BookingCreateListView(APIView):
 
             duration = cleaned_data.get("duration")
 
-            end_date_time = datetime.combine(booking_date,start_time) + timedelta(hours=duration)
+            end_date_time = datetime.combine(booking_date,start_time) + duration
 
             end_time = end_date_time.time()
 
@@ -85,3 +86,8 @@ class BookingCreateListView(APIView):
         else: return Response(serializer_inst.errors)
 
         
+class BookingRetrieveUpdateDelete(RetrieveAPIView,UpdateAPIView,DestroyAPIView):
+
+    serializer_class = BookingSerializer
+
+    queryset = Slots.objects.all()

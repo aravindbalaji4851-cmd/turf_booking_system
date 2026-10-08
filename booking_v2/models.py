@@ -14,7 +14,7 @@ class Slots(models.Model):
     
     start_time = models.TimeField()
     
-    duration = models.IntegerField()
+    duration = models.DurationField()
 
     end_time = models.TimeField(null=True)
     
